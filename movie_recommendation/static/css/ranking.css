@@ -1,0 +1,29 @@
+.ranking_input_div {
+  display: flex;
+  justify-content: center;
+}
+
+#genre_select_option {
+  min-width: 3in;
+  width: 4.5in;
+  height: 50px;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: rgba(45, 42, 56, 0.866);
+  border: none;
+  color: orange;
+  font-size: 20px;
+}
+
+
+#genre_select_option:focus {
+  outline: none;
+}
+
+.genre_options {
+  color: orange;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgba(45, 42, 56, 0.866);
+  border: none
+}

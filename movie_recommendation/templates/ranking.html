@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Rankings{% endblock title %}
+
+{% block csslink %}
+<link rel="stylesheet" href="{% static 'css/ranking.css' %}">
+{% endblock csslink %}
+
+{% block content %}
+<!-- <section class="recommendpage"> -->
+<div class="ranking_input_div">
+   <select name="genre_select_option" id="genre_select_option" hx-boost="true" hx-get="{% url 'ranking' %}" hx-trigger="click changed" hx-target="#rankingres">
+      <option class="genre_options" value="" selected disabled>select a genre...</option>
+      <option class="genre_options" value="All">All</option>
+      {% for genre in genres %}
+      <option class="genre_options" value="{{genre}}">{{genre}}</option>
+      {% endfor %}
+   </select>
+</div>
+<section id="rankingres" class="rankingres"></section>
+<!-- </section> -->
+{% endblock content %}

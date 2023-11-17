@@ -1,0 +1,9 @@
+<section class="recommend_search_section">
+   <div class="search_result_div">
+      {% for key,value in search_results.items %}
+      <p hx-get="{% url 'recommend' %}" hx-vals='{"title": "{{key}}"}' hx-target="#searchres" hx-swap="innerHTML show:#body:top">
+         🟢 {{key}}
+      </p>
+      {% endfor %}
+   </div>
+</section>

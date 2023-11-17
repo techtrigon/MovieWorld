@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} : Home{% endblock title %}
+
+
+{% block csslink %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock csslink %}
+
+
+{% block content %}
+<section class="mainpage">
+   <div class="mainimgdiv">
+      <img class="mainimg" width="350" height="450" src="{% static 'img/joe-yates-Cc4sToR2Oc0-unsplash.jpg' %}" alt="MAIN IMAGE" srcset="">
+   </div>
+   <div class="mainline ">
+      <h1 class="head1">Welcome..</h1>
+      <h2 class="head2">
+         Millions of movies, TV shows and people to discover
+      </h2>
+      <a href="#" class="head3">
+         EXPLORE
+      </a>
+   </div>
+</section>
+{% endblock content %}

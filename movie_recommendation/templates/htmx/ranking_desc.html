@@ -1,0 +1,107 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cuprum:wght@400;600&display=swap');
+  .ranking_desc_page{
+  width: 95%;
+  margin: 50px auto;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-family: 'Quicksand', sans-serif;
+}
+.ranking_desc_page>*{
+  background: #1c1c21f9;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 18px 4px black;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.ranking_left_desc{
+  flex-basis: 70%;
+  min-width:60%;
+  flex-grow: 1;
+  display: flex;
+  gap: 30px;
+}
+
+.ranking_right_desc{
+  flex-grow: 1;
+  flex-basis: 360px;
+  /* flex-basis: 20%; */
+}
+.ranking_img_desc>img{
+  border-radius: 15px;
+  aspect-ratio:1/1.4;
+  box-shadow: 0 0 10px 2px black;
+}
+.ranking_img_desc>img:hover{
+filter: saturate(1.2);
+}
+#ranking_desc_name{
+  font-size: 2em;
+  letter-spacing: 3px;
+  font-weight: 600;
+  font-family: 'Quicksand', sans-serif;
+  margin-top: -10px;
+}
+.ranking_desc_label{
+  background: #bb0c3e;
+  width: max-content;
+  border-radius: 10px;
+  padding: 2px 12px;
+  margin:0;
+}
+.ranking_right_desc>*,
+.ranking_non_img_desc>*{
+  margin: 10px 0;
+}
+.listvals{
+  width: max-content;padding: 4px 10px; border: 1px solid rgb(44, 255, 1);border-radius: 10px;margin: 2px 0;
+}
+a{
+  color: white;
+}
+</style>
+<section class="ranking_desc_page">
+   <section class="ranking_left_desc">
+      <section class="ranking_img_desc">
+         <img src="{{md.Poster}}" alt="Poster" width="300">
+      </section>
+      <section class="ranking_non_img_desc">
+         <article id="ranking_desc_name">{{md.Name}}</article>
+         <p class="ranking_desc_label" style="background-color: rgb(7, 118, 116);">{{md.votewt|floatformat:2}} ⭐</p>
+         <p class="ranking_desc_label">Genres</p>
+         <article style="display: flex;flex-wrap: wrap;gap:0 7px;">
+            {% for i in md.Genres %}
+            <p class="listvals">{{i}}</p>
+            {% endfor %}
+         </article>
+         <p class="ranking_desc_label">Description</p>
+         <article>{{md.Description}}</article>
+         <article>{{md.DatePublished}}</article>
+      </section>
+   </section>
+   <!-- <section class="ranking_non_img_desc"> -->
+   <section class="ranking_right_desc">
+      <p class="ranking_desc_label">Director</p>
+      <p>{{md.Director}}</p>
+      <p class="ranking_desc_label">Actors</p>
+      <article style="display: flex; flex-wrap: wrap; gap: 3px 7px; margin: 10px 0;">
+         {% for i in md.Actors %}
+         <p class="listvals">{{i}}</p>
+         {% endfor %}
+      </article>
+      <p class="ranking_desc_label">Keywords</p>
+      <article style="display: flex; flex-wrap: wrap; gap: 3px 7px; margin: 10px 0 ;">
+         {% for i in md.Keywords %}
+         <p class="listvals">{{i}}</p>
+         {% endfor %}
+      </article>
+      <article style="background-color: rgb(109, 31, 182); border-radius: 5px;" class="ranking_desc_label">
+         <a href="{{md.url}}">IMDb</a>
+      </article>
+   </section>
+</section>
+<script>
+  document.title='{{md.Name}}'
+</script>

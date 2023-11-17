@@ -1,0 +1,24 @@
+<!-- {% load static %} -->
+<section class="recommend_section">
+   <h2>
+      {{title}}
+   </h2>
+   <div>
+      Top Recommendations
+   </div>
+   <div class="recommend_results_content">
+      {% for recommendation in recommendations %}
+      <div class="recommend_results">
+         <div>
+            <img class="recommend_images" src="{{recommendation.1}}" alt="{{recommendation.0}}" width="250">
+         </div>
+         <div>
+            {{recommendation.0}}
+         </div>
+      </div>
+      {% endfor %}
+   </div>
+</section>
+<script async>
+document.title= "{{title}}"
+</script>

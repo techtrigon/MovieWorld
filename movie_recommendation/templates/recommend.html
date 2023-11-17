@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Recommend{% endblock title %}
+
+{% block csslink %}
+<link rel="stylesheet" href="{% static 'css/recommend.css' %}">
+{% endblock csslink %}
+
+{% block content %}
+<!-- <section class="recommendpage"> -->
+<div class="searchbar">
+   <div id="recommend_search_div">
+      <input
+         placeholder="search movie..."
+         type="search"
+         name="search"
+         id="search"
+         hx-trigger="keyup changed "
+         hx-get="{% url 'htmx_search_results' %}"
+         hx-target="#searchres"
+      >
+   </div>
+   <!-- <button type="submit" class="searchbtn" id="searchbtn">Search</button> -->
+</div>
+<section id="searchres" class="searchres"></section>
+<!-- </section> -->
+{% endblock content %}
+
+
+{% block script %}
+<script defer src="{% static 'js/recommend.js' %}"></script>
+{% endblock script %}

@@ -1,0 +1,93 @@
+<style>
+  .genre_select {
+  text-align: center;
+  font-size: 25px;
+  margin: 20px 0;
+  color: rgb(246, 31, 102);
+}
+
+.ranking_results {
+  display: grid;
+  grid-template-columns: 1fr 0.2fr;
+  min-width: 500px;
+  width: 60%;
+  margin: 0 auto;
+  font-size: 20px;
+  background: rgba(33, 32, 37, 0.927);
+  border-radius: 20px;
+}
+
+.ranking_results>:first-child,
+.ranking_results>:nth-child(2) {
+  margin-top: 18px;
+}
+
+.movie_ranking_results {
+   cursor: pointer;
+   height: max-content;
+   margin: 8px 30px;
+   transition: color 0.3s;
+   display: flex;
+   align-items: center;
+  /* color: orange; */
+}
+
+.vote_ranking_results {
+   cursor: pointer;
+   height: max-content;
+   margin: 8px 0;
+   padding: 0 20px;
+   /* color: orange; */
+}
+.movie_ranking_results:hover {
+  color: orange;
+}
+
+.votewt_display {
+  text-align: center;
+}
+
+.pagination_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination_btn>div {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+</style>
+<!-- <section> -->
+<div class="genre_select">
+   Top {{genre_select}} movies
+</div>
+<div class="pagination_btn">
+   <div>
+      {%if page_obj.has_previous %}
+      <div hx-get="{% url 'ranking' %}?genre_select_option={{genre_select}}&page={{page_obj.previous_page_number}}" hx-trigger="click" hx-swap="innerHTML" hx-target="#rankingres" hx-boost="true">⬅️</div>
+      {% endif %}
+      <div>{{page_obj.number}}</div>
+      {%if page_obj.has_next %}
+      <div hx-get="{% url 'ranking' %}?genre_select_option={{genre_select}}&page={{page_obj.next_page_number}}" hx-trigger="click" hx-swap="innerHTML" hx-target="#rankingres" hx-boost="true">➡️</div>
+      {% endif %}
+   </div>
+</div>
+<section class="ranking_results">
+   {% for row in page_obj.object_list %}
+   <div class="movie_ranking_results" hx-swap="innerHTML show:#content_section:top" hx-target="#rankingres" hx-get="{% url 'htmx_desc' row.Name %}">
+      <div>🔵 {{row.Name}}</div>
+   </div>
+   <div class="vote_ranking_results">
+      <div class="votewt_display">{{row.votewt|floatformat:2}} ⭐</div>
+   </div>
+   {% endfor %}
+</section>
+<!-- </section> -->
+<script async>
+document.title= "{{genre_select}} movies"
+</script>
