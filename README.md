@@ -4,7 +4,7 @@
 
 Welcome to the Content-Based Movie Recommendation System project! This recommendation system is designed to provide personalized movie suggestions based on a dataset of 50,000 movies. The system is equipped with a user-friendly GUI for a seamless experience.
 
-**Features:**
+**FEATURES:**
 Content-Based Recommendations: Utilizing content-based filtering, the system recommends movies based on the user's historical preferences and characteristics of the movies they have enjoyed.
 
 Real-time Search Functionality: Experience fast and dynamic searching capabilities. The system allows users to search for movies in real-time, providing instant results as you type.
@@ -13,7 +13,7 @@ Genre and Ratings Lists: Easily explore movies by genre or ratings. The system o
 
 Detailed Movie Information: Get comprehensive information about each movie, including details about the cast, crew, release date, and user ratings.
 
-**Technologies Used:**
+**TECHNOLOGIES USED:**
 
 Python, Django, HTMX, CSS, Pandas, NumPy, Scikit-Learn, Joblib, Pyarrow-feather, Spacy
 
