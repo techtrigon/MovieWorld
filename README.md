@@ -1,6 +1,6 @@
 **MovieWorld**
 
-**Movie Recommendation System with Real-time Search (Content-Based)**
+**Movie Recommendation SPA System with Real-time Search (Content-Based)**
 
 Welcome to the Content-Based Movie Recommendation System project! This recommendation system is designed to provide personalized movie suggestions based on a dataset of 50,000 movies. The system is equipped with a user-friendly GUI for a seamless experience.
 
